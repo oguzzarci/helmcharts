@@ -3,23 +3,23 @@ kind: Deployment
 metadata:
   creationTimestamp: null
   labels:
-    app: my-nginx
-  name: my-nginx
+    app: simplejavaapp
+  name: simplejavaapp
 spec:
   #replicas: 1
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: my-nginx
+      app: simplejavaapp
   strategy: {}
   template:
     metadata:
       creationTimestamp: null
       labels:
-        app: my-nginx
+        app: simplejavaapp
     spec:
       containers:
-      - image: nginx
-        name: nginx
+      - image: {{ .Values.image }}
+        name: simplejavaapp
         resources: {}
 status: {}
